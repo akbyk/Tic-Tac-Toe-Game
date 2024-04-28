@@ -4,6 +4,16 @@ import java.awt.event.*;
 import java.util.*;
 
 public class TickTackToe implements ActionListener {
+    private static final int FRAME_SIZE = 800;
+    private static final Color FRAME_BACKGROUND_COLOR = new Color(50, 50, 50);
+    private static final String FRAME_TITLE = "Tic Tac Toe";
+    private static final Color TEXT_FIELD_BACKGROUND_COLOR = new Color(25, 25, 25);
+    private static final Color TEXT_FIELD_FOREGROUND_COLOR = new Color(25, 255, 0);
+    private static final Font TEXT_FIELD_FONT = new Font("Ink Free", Font.BOLD, 75);
+    private static final String TEXT_FIELD_TEXT = "Tic Tac Toe";
+    private static final Color REPLAY_BUTTON_COLOR = Color.RED;
+    private static final String REPLAY_BUTTON_TEXT = "Replay";
+	private static final Color BUTTON_BACKGROUND_COLOR = new Color(150, 150, 150); 
 
 	JFrame frame = new JFrame();
 	JPanel titlePanel = new JPanel();
@@ -17,32 +27,32 @@ public class TickTackToe implements ActionListener {
 
 	TickTackToe() {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(800, 800);
-		frame.getContentPane().setBackground(new Color(50, 50, 50));
+		frame.setSize(FRAME_SIZE, FRAME_SIZE);
+		frame.getContentPane().setBackground(FRAME_BACKGROUND_COLOR);
 		frame.setLayout(new BorderLayout());
-		frame.setTitle("Tic Tac Toe");
+		frame.setTitle(FRAME_TITLE);
 		frame.setVisible(true);
 
-		textField.setBackground(new Color(25, 25, 25));
-		textField.setForeground(new Color(25, 255, 0));
-		textField.setFont(new Font("Ink Free", Font.BOLD, 75));
+		textField.setBackground(TEXT_FIELD_BACKGROUND_COLOR);
+		textField.setForeground(TEXT_FIELD_BACKGROUND_COLOR);
+		textField.setFont(TEXT_FIELD_FONT);
 		textField.setHorizontalAlignment(JLabel.CENTER);
-		textField.setText("Tic Tac Toe");
+		textField.setText(TEXT_FIELD_TEXT);
 		textField.setOpaque(true);
 
 		titlePanel.setLayout(new BorderLayout());
-		titlePanel.setBounds(0, 0, 800, 100);
+		titlePanel.setBounds(0, 0, FRAME_SIZE, 100);
 
-		replayButton.setText("Replay");
+		replayButton.setText(REPLAY_BUTTON_TEXT);
 		replayButton.setFocusable(false);
-		replayButton.setBackground(Color.RED);
+		replayButton.setBackground(REPLAY_BUTTON_COLOR);
 		replayButton.addActionListener(this);
 
 		replayPanel.setBackground(Color.BLUE);
 		replayPanel.add(replayButton);
 
 		buttonPanel.setLayout(new GridLayout(3, 3));
-		buttonPanel.setBackground(new Color(150, 150, 150));
+		buttonPanel.setBackground(BUTTON_BACKGROUND_COLOR);
 
 		for (int i = 0; i < 9; i++) {
 			buttons[i] = new JButton();
